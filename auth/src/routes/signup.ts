@@ -3,8 +3,7 @@ import { body } from 'express-validator'
 import jwt from 'jsonwebtoken'
 
 import { User } from '../models/User'
-import { BadRequestError } from '../errors/bad-request-error'
-import { validateRequest } from '../errors/validate-req'
+import { BadRequestError, validateRequest } from '@ihtickets/common'
 
 const router = Router()
 
