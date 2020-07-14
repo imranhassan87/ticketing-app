@@ -2,6 +2,7 @@ import request from 'supertest'
 import { app } from '../../app'
 import mongoose from 'mongoose'
 
+
 it('returns 404 if ticket is not found', async () => {
     const id = new mongoose.Types.ObjectId().toHexString()
     const response = await request(app).get(`/api/tickets/${id}`).send({}).expect(404)
