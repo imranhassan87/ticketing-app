@@ -4,7 +4,7 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session'
 import { errorHandler, NotFoundError, currentUser } from '@ihtickets/common'
 
-// import { indexOrderRouter } from './routes/index'
+import { indexOrderRouter } from './routes/index'
 import { newOrderRouter } from './routes/new'
 import { showOrderRouter } from './routes/show'
 import { deleteOrderRouter } from './routes/delete'
@@ -20,7 +20,7 @@ app.use(
 )
 app.use(currentUser)
 
-// app.use(indexOrderRouter)
+app.use(indexOrderRouter)
 app.use(newOrderRouter)
 app.use(showOrderRouter)
 app.use(deleteOrderRouter)
