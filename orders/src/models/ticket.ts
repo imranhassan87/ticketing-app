@@ -3,6 +3,7 @@ import { OrderStatus } from '@ihtickets/common'
 import { Order } from './order'
 
 interface TicketAttr {
+    id: string
     title: string,
     price: number
 }
@@ -37,7 +38,11 @@ const ticketSchema = new Schema({
 })
 
 ticketSchema.statics.build = (attrs: TicketAttr) => {
-    return new Ticket(attrs)
+    return new Ticket({
+        _id: attrs.id,
+        title: attrs.title,
+        price: attrs.price
+    })
 }
 
 ticketSchema.methods.isReserved = async function () {
