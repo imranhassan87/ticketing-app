@@ -15,6 +15,7 @@ spec:
       containers:
         - name: expiration
           image: imranhassan96/expiration
+          imagePullPolicy: IfNotPresent
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
@@ -24,3 +25,5 @@ spec:
               value: "http://nats-srv:4222"
             - name: NATS_CLUSTER_ID
               value: ticketing
+            - name: REDIS_HOST
+              value: expiration-redis-srv
