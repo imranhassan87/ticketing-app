@@ -49,9 +49,9 @@ router.post(
             expiresAt: expiration,
             ticket,
         });
-        await order.save()
+        await order.save();
 
-        //publish an event that order has been created
+        // Publish an event saying that an order was created
         new OrderCreatedPublisher(natsWrapper.client).publish({
             id: order.id,
             version: order.version,
@@ -60,12 +60,12 @@ router.post(
             expiresAt: order.expiresAt.toISOString(),
             ticket: {
                 id: ticket.id,
-                price: ticket.price
+                price: ticket.price,
             },
-        })
+        });
 
-        res.status(201).send(order)
-    })
-
+        res.status(201).send(order);
+    }
+);
 
 export { router as newOrderRouter }

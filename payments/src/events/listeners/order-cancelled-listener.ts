@@ -8,18 +8,18 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent>{
     queueGroupName = paymentQueueGroup
 
     async onMessage(data: OrderCancelledEvent['data'], msg: Message) {
-
         const order = await Order.findOne({
             _id: data.id,
-            version: data.version - 1
-        })
+            version: data.version - 1,
+        });
+
         if (!order) {
-            throw new Error('Order Not Found!')
+            throw new Error('Order not found');
         }
 
-        order.set({ status: OrderStatus.Cancelled })
-        await order.save()
+        order.set({ status: OrderStatus.Cancelled });
+        await order.save();
 
-        msg.ack()
+        msg.ack();
     }
 }
