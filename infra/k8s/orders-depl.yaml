@@ -27,7 +27,7 @@ spec:
               value: ticketing
             - name: MONGO_URI
               value: "mongodb://orders-mongo-srv:27017/orders"
-            - name: JWT_KET
+            - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
                   name: jwt-secret
