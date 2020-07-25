@@ -1,10 +1,10 @@
-import { Listener, OrderCreatedEvent, Subjects } from '@ihtickets/common'
-import { expirationSrvQueueGroup } from './queueGroupName'
-import { Message } from 'node-nats-streaming'
-import { expirationQueue } from '../../queues/expiration-queue'
+import { Listener, OrderCreatedEvent, Subjects } from '@ihtickets/common';
+import { Message } from 'node-nats-streaming';
+import { expirationSrvQueueGroup } from './queueGroupName';
+import { expirationQueue } from '../../queues/expiration-queue';
 
 export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
-    readonly subject = Subjects.OrderCreated;
+    subject: Subjects.OrderCreated = Subjects.OrderCreated;
     queueGroupName = expirationSrvQueueGroup;
 
     async onMessage(data: OrderCreatedEvent['data'], msg: Message) {

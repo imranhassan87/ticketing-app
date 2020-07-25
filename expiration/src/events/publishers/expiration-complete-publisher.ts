@@ -1,5 +1,11 @@
-import { ExpirationCompleteEvent, Publisher, Subjects } from '@ihtickets/common'
+import {
+    Subjects,
+    Publisher,
+    ExpirationCompleteEvent,
+} from '@ihtickets/common';
 
-export class ExpirationCompletePublisher extends Publisher<ExpirationCompleteEvent>{
-    readonly subject = Subjects.ExpirationComplete
+export class ExpirationCompletePublisher extends Publisher<
+    ExpirationCompleteEvent
+    > {
+    readonly subject = Subjects.ExpirationComplete;
 }

@@ -3,9 +3,10 @@ import { paymentQueueGroup } from './queueGroupName'
 import { Message } from 'node-nats-streaming'
 import { Order } from '../../models/order'
 
-export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
-    readonly subject = Subjects.OrderCreated;
-    queueGroupName = paymentQueueGroup;
+export class OrderCreatedListener extends Listener<OrderCreatedEvent>{
+
+    readonly subject = Subjects.OrderCreated
+    queueGroupName = paymentQueueGroup
 
     async onMessage(data: OrderCreatedEvent['data'], msg: Message) {
 

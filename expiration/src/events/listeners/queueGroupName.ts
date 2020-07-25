@@ -1,1 +1,1 @@
-export const expirationSrvQueueGroup = 'expiration-service'
+export const expirationSrvQueueGroup = 'expiration-service';
